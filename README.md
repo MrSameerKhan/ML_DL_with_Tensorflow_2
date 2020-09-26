@@ -1,2 +1,2 @@
-Machine Learning & Deep Learning & Reinforcement
+Machine Learning & Deep Learning
 ==========================
