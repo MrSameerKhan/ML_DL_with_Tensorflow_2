@@ -48,7 +48,7 @@ import os
 np.random.seed(42)
 
 # To plot pretty figures
-get_ipython().magic('matplotlib inline')
+# get_ipython().magic('matplotlib inline')
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 mpl.rc('axes', labelsize=14)
@@ -479,17 +479,17 @@ for item in dataset:
 # First let's write a simple protobuf definition:
 
 # %%
-get_ipython().run_cell_magic('writefile', 'person.proto', 'syntax = "proto3";\nmessage Person {\n  string name = 1;\n  int32 id = 2;\n  repeated string email = 3;\n}')
+# get_ipython().run_cell_magic('writefile', 'person.proto', 'syntax = "proto3";\nmessage Person {\n  string name = 1;\n  int32 id = 2;\n  repeated string email = 3;\n}')
 
 # %% [markdown]
 # And let's compile it (the `--descriptor_set_out` and `--include_imports` options are only required for the `tf.io.decode_proto()` example below):
 
 # %%
-get_ipython().system('protoc person.proto --python_out=. --descriptor_set_out=person.desc --include_imports')
+# get_ipython().system('protoc person.proto --python_out=. --descriptor_set_out=person.desc --include_imports')
 
 
 # %%
-get_ipython().system('ls person*')
+# get_ipython().system('ls person*')
 
 
 # %%
@@ -1212,8 +1212,8 @@ model.fit(train_set, epochs=5, validation_data=valid_set,
 # **Warning:** The profiling tab in TensorBoard works if you use TensorFlow 2.2+. You also need to make sure `tensorboard_plugin_profile` is installed (and restart Jupyter if necessary).
 
 # %%
-get_ipython().magic('load_ext tensorboard')
-get_ipython().magic('tensorboard --logdir=./my_logs --port=6006')
+# get_ipython().magic('load_ext tensorboard')
+# get_ipython().magic('tensorboard --logdir=./my_logs --port=6006')
 
 # %% [markdown]
 # ## 10.
@@ -1293,7 +1293,7 @@ for X, y in imdb_dataset(train_pos, train_neg).take(3):
 
 
 # %%
-get_ipython().magic('timeit -r1 for X, y in imdb_dataset(train_pos, train_neg).repeat(10): pass')
+# get_ipython().magic('timeit -r1 for X, y in imdb_dataset(train_pos, train_neg).repeat(10): pass')
 
 # %% [markdown]
 # It takes about 20 seconds to load the dataset and go through it 10 times.
@@ -1312,13 +1312,13 @@ def imdb_dataset(filepaths_positive, filepaths_negative, n_read_threads=5):
 
 
 # %%
-get_ipython().magic('timeit -r1 for X, y in imdb_dataset(train_pos, train_neg).repeat(10): pass')
+# get_ipython().magic('timeit -r1 for X, y in imdb_dataset(train_pos, train_neg).repeat(10): pass')
 
 # %% [markdown]
 # Now it takes about 34 seconds to go through the dataset 10 times. That's much slower, essentially because the dataset is not cached in RAM, so it must be reloaded at each epoch. If you add `.cache()` just before `.repeat(10)`, you will see that this implementation will be about as fast as the previous one.
 
 # %%
-get_ipython().magic('timeit -r1 for X, y in imdb_dataset(train_pos, train_neg).cache().repeat(10): pass')
+# get_ipython().magic('timeit -r1 for X, y in imdb_dataset(train_pos, train_neg).cache().repeat(10): pass')
 
 
 # %%

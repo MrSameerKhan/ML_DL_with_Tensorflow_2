@@ -45,7 +45,7 @@ import os
 np.random.seed(42)
 
 # To plot pretty figures
-get_ipython().magic('matplotlib inline')
+# get_ipython().magic('matplotlib inline')
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 mpl.rc('axes', labelsize=14)
@@ -759,9 +759,9 @@ history = model.fit(X_train, y_train, epochs=30,
 # 
 # Alternatively, you can load TensorBoard's Jupyter extension and run it like this:
 
-# %%
-get_ipython().magic('load_ext tensorboard')
-get_ipython().magic('tensorboard --logdir=./my_logs --port=6006')
+# # %%
+# get_ipython().magic('load_ext tensorboard')
+# get_ipython().magic('tensorboard --logdir=./my_logs --port=6006')
 
 
 # %%
@@ -1069,6 +1069,6 @@ model.evaluate(X_test, y_test)
 # We got over 98% accuracy. Finally, let's look at the learning curves using TensorBoard:
 
 # %%
-get_ipython().magic('tensorboard --logdir=./my_mnist_logs --port=6006')
+# get_ipython().magic('tensorboard --logdir=./my_mnist_logs --port=6006')
 
 

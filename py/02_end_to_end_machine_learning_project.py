@@ -34,7 +34,7 @@ import numpy as np
 import os
 
 # To plot pretty figures
-get_ipython().magic('matplotlib inline')
+# get_ipython().magic('matplotlib inline')
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 mpl.rc('axes', labelsize=14)
@@ -110,7 +110,7 @@ housing.describe()
 
 
 # %%
-get_ipython().magic('matplotlib inline')
+# get_ipython().magic('matplotlib inline')
 import matplotlib.pyplot as plt
 housing.hist(bins=50, figsize=(20,15))
 save_fig("attribute_histogram_plots")

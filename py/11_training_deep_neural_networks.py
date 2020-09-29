@@ -38,7 +38,7 @@ import tensorflow as tf
 from tensorflow import keras
 assert tf.__version__ >= "2.0"
 
-get_ipython().magic('load_ext tensorboard')
+# get_ipython().magic('load_ext tensorboard')
 
 # Common imports
 import numpy as np
@@ -48,7 +48,7 @@ import os
 np.random.seed(42)
 
 # To plot pretty figures
-get_ipython().magic('matplotlib inline')
+# get_ipython().magic('matplotlib inline')
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 mpl.rc('axes', labelsize=14)
@@ -1251,7 +1251,7 @@ callbacks = [early_stopping_cb, model_checkpoint_cb, tensorboard_cb]
 
 
 # %%
-get_ipython().magic('tensorboard --logdir=./my_cifar10_logs --port=6006')
+# get_ipython().magic('tensorboard --logdir=./my_cifar10_logs --port=6006')
 
 
 # %%
