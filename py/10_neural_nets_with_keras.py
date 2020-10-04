@@ -20,7 +20,7 @@ from IPython import get_ipython
 
 # %%
 # Python ≥3.5 is required
-import sys
+import sys  
 assert sys.version_info >= (3, 5)
 
 # Scikit-Learn ≥0.20 is required
