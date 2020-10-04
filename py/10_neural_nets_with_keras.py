@@ -265,7 +265,7 @@ y_train
 
 # %%
 class_names = ["T-shirt/top", "Trouser", "Pullover", "Dress", "Coat",
-               "Sandal", "Shirt", "Sneaker", "Bag", "Ankle boot"]
+                "Sandal", "Shirt", "Sneaker", "Bag", "Ankle boot"]
 
 # %% [markdown]
 # So the first image in the training set is a coat:
@@ -368,8 +368,8 @@ biases.shape
 
 # %%
 model.compile(loss="sparse_categorical_crossentropy",
-              optimizer="sgd",
-              metrics=["accuracy"])
+                optimizer="sgd",
+                metrics=["accuracy"])
 
 # %% [markdown]
 # This is equivalent to:
