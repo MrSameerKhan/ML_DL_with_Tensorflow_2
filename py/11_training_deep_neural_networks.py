@@ -196,8 +196,8 @@ model = keras.models.Sequential([
 
 # %%
 model.compile(loss="sparse_categorical_crossentropy",
-              optimizer=keras.optimizers.SGD(lr=1e-3),
-              metrics=["accuracy"])
+                optimizer=keras.optimizers.SGD(lr=1e-3),
+                metrics=["accuracy"])
 
 
 # %%
