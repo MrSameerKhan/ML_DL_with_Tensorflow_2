@@ -15,7 +15,7 @@ assert sklearn.__version__ >= "0.20"
 # TensorFlow ≥2.0 is required
 import tensorflow as tf
 from tensorflow import keras
-assert tf.__version__ >= "2.0"
+
 
 if not tf.config.list_physical_devices('GPU'):
     print("No GPU was detected. CNNs can be very slow without a GPU.")
@@ -591,8 +591,8 @@ reversed_filters = np.flip(weights.numpy(), axis=[0, 1])
 reversed_filters = np.transpose(reversed_filters, [0, 1, 3, 2])
 manual_output = tf.nn.conv2d(upscaled, reversed_filters, strides=1, padding="VALID")
 
-def normalize(X):
-    return (X - tf.reduce_min(X)) / (tf.reduce_max(X) - tf.reduce_min(X))
+# def normalize(X):
+#     return (X - tf.reduce_min(X)) / (tf.reduce_max(X) - tf.reduce_min(X))
 
 fig = plt.figure(figsize=(12, 8))
 gs = mpl.gridspec.GridSpec(nrows=1, ncols=3, width_ratios=[1, 2, 2])
