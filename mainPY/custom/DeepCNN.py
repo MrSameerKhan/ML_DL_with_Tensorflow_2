@@ -285,7 +285,7 @@ def mnistCNN():
     X_valid = X_valid[..., np.newaxis]
     X_test = X_test[..., np.newaxis]
 
-    
+
 
     DefaultConv2D = partial(keras.layers.Conv2D,
                             kernel_size=3, activation='relu', padding="SAME")
