@@ -62,6 +62,8 @@ mpl.rc('xtick', labelsize=12)
 mpl.rc('ytick', labelsize=12)
 
 
+
+
 # %%
 # Download the data
 import urllib
