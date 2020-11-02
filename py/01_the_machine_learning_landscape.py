@@ -3,6 +3,7 @@
 # %%
 from IPython import get_ipython
 
+# Comment
 # %% [markdown]
 # **Chapter 1 – The Machine Learning landscape**
 # 
