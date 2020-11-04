@@ -194,7 +194,7 @@ train_set, test_set = train_test_split(housing, test_size=0.2, random_state=42)
 # %%
 test_set.head()
 
-
+# Comment
 # %%
 housing["median_income"].hist()
 
