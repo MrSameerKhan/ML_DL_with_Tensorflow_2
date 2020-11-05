@@ -2,7 +2,7 @@
 # To add a new markdown cell, type '# %% [markdown]'
 # %%
 from IPython import get_ipython
-
+# second
 # %% [markdown]
 # **Tools - NumPy**
 # 
