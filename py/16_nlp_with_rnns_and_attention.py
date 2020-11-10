@@ -450,13 +450,14 @@ for X_batch, y_batch in train_set.take(1):
     print(X_batch)
     print(y_batch)
 
+# Comment
 
 # %%
 embed_size = 128
 model = keras.models.Sequential([
     keras.layers.Embedding(vocab_size + num_oov_buckets, embed_size,
-                           mask_zero=True, # not shown in the book
-                           input_shape=[None]),
+                            mask_zero=True, # not shown in the book
+                            input_shape=[None]),
     keras.layers.GRU(128, return_sequences=True),
     keras.layers.GRU(128),
     keras.layers.Dense(1, activation="sigmoid")
