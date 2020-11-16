@@ -27,11 +27,7 @@ assert sys.version_info >= (3, 5)
 import sklearn
 assert sklearn.__version__ >= "0.20"
 
-try:
-    # %tensorflow_version only exists in Colab.
-    get_ipython().magic('tensorflow_version 2.x')
-except Exception:
-    pass
+
 
 # TensorFlow ≥2.0 is required
 import tensorflow as tf
