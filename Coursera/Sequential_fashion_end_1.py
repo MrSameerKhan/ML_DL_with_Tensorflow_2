@@ -36,11 +36,18 @@ print(model.summary())
 labels = ["T-shirt/top", "Trouser", "Pullover", "Dress", "Coat", 
             "Sandal", "Shirt", "Sneaker", "Bag", "Ankle Boot"]
 
-history = model.fit(train_images[...,np.newaxis],train_labels, batch_size=256, epochs=2)
+history = model.fit(train_images[...,np.newaxis],train_labels, batch_size=256, epochs=8)
 
 df = pd.DataFrame(history.history)
-print(df.head())
+print(df)
+
+
+testLoss, testAcc, testMSE = model.evaluate(test_images[...,np.newaxis], test_labels, verbose=2)
+
+print(testLoss, testAcc, testMSE)
 
 
 loss_plot = df.plot(y="loss", title= "Loss vs Epochs", legend = True)
 loss_plot.set(xlabel="Epochs", ylabel="Loss")
+
+
