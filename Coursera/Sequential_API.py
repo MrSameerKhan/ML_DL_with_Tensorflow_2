@@ -724,3 +724,48 @@ plt.legend(["Training", "Validation"], loc="upper right")
 
 
 plt.show()
+
+# %%
+
+# Saving and loading model
+
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.losses import BinaryCrossentropy
+from tensorflow.keras.callbacks import ModelCheckpoint
+
+model = Sequential([
+    Dense(64, activation="sigmoid", input_shape=(10,)),
+    Dense(1)
+])
+model.compile(optimizer="sgd", loss=BinaryCrossentropy(from_logits=True))
+
+
+# Save only weight of the model using tensorflow
+# Tensorflow saves in the checkpoint format for each epoch
+checkpoint = ModelCheckpoint("my_model", save_weights_only=True)
+model.fit(X_train, y_train, epochs=10, callbacks=[checkpoint])
+# checkpoint
+# my_model.data-0000-of-0001
+# my_model.index
+
+
+# save only weights of the model using Keras 
+# Keras uses HDF5 .h5 file fomat for saving the weights
+checkpoint = ModelCheckpoint("keras_model.h5", save_weights_only=True)
+model.fit(X_train, y_train, epochs=10, callbacks=[checkpoint])
+
+
+# Load the trained weights of the model
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.callbacks import ModelCheckpoint
+
+model = Sequential([
+    Dense(64, activation="sigmoid", input_shape=(10,)),
+    Dense(1)
+])
+
+model.load_weights("keras_model.hs")
+
+
