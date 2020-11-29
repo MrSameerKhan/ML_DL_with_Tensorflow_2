@@ -14,7 +14,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-
+pip install --upgrade xlrd
 (train_images, train_labels),(test_images, test_labels) = tf.keras.datasets.fashion_mnist.load_data()
 labels = ["T-shirt/top", "Trouser", "Pullover", "Dress", "Coat", 
             "Sandal", "Shirt", "Sneaker", "Bag", "Ankle Boot"]
