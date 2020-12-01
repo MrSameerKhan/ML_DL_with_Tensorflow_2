@@ -70,7 +70,6 @@ reg_history = regularized_model.fit(train_data, train_targets, epochs=100,
 regularized_model.evaluate(test_data, test_targets, verbose=2)
 
 
-
 fig = plt.figure(figsize=(12,5))
 fig.add_subplot(121)
 
