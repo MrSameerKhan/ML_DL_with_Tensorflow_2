@@ -11,7 +11,7 @@ except ImportError:
 import pytesseract
 
 #read your file
-file=r'/home/sameer/Music/ML_DL_with_Tensorflow_2/Scripts/CARDS/26161761_4_2.jpg'
+file=r'/home/sameer/Music/ML_DL_with_Tensorflow_2/Scripts/CARDS/26508688_4_2.jpg'
 img = cv2.imread(file,0)
 img.shape
 
@@ -99,12 +99,13 @@ box = []
 for c in contours:
     x, y, w, h = cv2.boundingRect(c)
     if (w<1000 and h<500):
-        image = cv2.rectangle(img,(x,y),(x+w,y+h),(233,255,0),4)
+        image = cv2.rectangle(img,(x,y),(x+w,y+h),(0,0,0),8)
         box.append([x,y,w,h])
         
 plotting = plt.imshow(image,cmap='gray')
 plt.show()
 cv2.imwrite("/home/sameer/Music/ML_DL_with_Tensorflow_2/Scripts/output/gray.jpg", image)
+
 
 #Creating two lists to define row and column in which cell is located
 row=[]
@@ -133,7 +134,7 @@ for i in range(len(box)):
             column.append(box[i])
             
 # print(column)
-# print(row)
+print(row)
 
 #calculating maximum number of cells
 countcol = 0
@@ -147,53 +148,4 @@ center = [int(row[i][j][0]+row[i][j][2]/2) for j in range(len(row[i])) if row[0]
 
 center=np.array(center)
 center.sort()
-# print(center)
-#Regarding the distance to the columns center, the boxes are arranged in respective order
-
-finalboxes = []
-for i in range(len(row)):
-    lis=[]
-    for k in range(countcol):
-        lis.append([])
-    for j in range(len(row[i])):
-        diff = abs(center-(row[i][j][0]+row[i][j][2]/4))
-        minimum = min(diff)
-        indexing = list(diff).index(minimum)
-        lis[indexing].append(row[i][j])
-    finalboxes.append(lis)
-
-
-#from every single image-based cell/box the strings are extracted via pytesseract and stored in a list
-outer=[]
-for i in range(len(finalboxes)):
-    for j in range(len(finalboxes[i])):
-        inner=''
-        if(len(finalboxes[i][j])==0):
-            outer.append(' ')
-        else:
-            for k in range(len(finalboxes[i][j])):
-                y,x,w,h = finalboxes[i][j][k][0],finalboxes[i][j][k][1], finalboxes[i][j][k][2],finalboxes[i][j][k][3]
-                finalimg = bitnot[x:x+h, y:y+w]
-                kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (2, 1))
-                border = cv2.copyMakeBorder(finalimg,2,2,2,2, cv2.BORDER_CONSTANT,value=[255,255])
-                resizing = cv2.resize(border, None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC)
-                dilation = cv2.dilate(resizing, kernel,iterations=1)
-                erosion = cv2.erode(dilation, kernel,iterations=2)
-                
-                out = pytesseract.image_to_string(erosion)
-                if(len(out)==0):
-                    try:
-                        out = pytesseract.image_to_string(erosion, config='-l ara+Arabic+eng--psm 3')
-                    except:
-                        pass
-                inner = inner +" "+ out
-                print(inner)
-            outer.append(inner)
-
-#Creating a dataframe of the generated OCR list
-arr = np.array(outer)
-dataframe = pd.DataFrame(arr.reshape(len(row), countcol))
-# print(dataframe)
-data = dataframe.style.set_properties(align="left")
-#Converting it in a excel-file
-data.to_excel("/home/sameer/Music/ML_DL_with_Tensorflow_2/Scripts/output/output.xlsx")
+print(center)
