@@ -149,3 +149,17 @@ center = [int(row[i][j][0]+row[i][j][2]/2) for j in range(len(row[i])) if row[0]
 center=np.array(center)
 center.sort()
 print(center)
+
+#Regarding the distance to the columns center, the boxes are arranged in respective order
+
+finalboxes = []
+for i in range(len(row)):
+    lis=[]
+    for k in range(countcol):
+        lis.append([])
+    for j in range(len(row[i])):
+        diff = abs(center-(row[i][j][0]+row[i][j][2]/4))
+        minimum = min(diff)
+        indexing = list(diff).index(minimum)
+        lis[indexing].append(row[i][j])
+    finalboxes.append(lis)
