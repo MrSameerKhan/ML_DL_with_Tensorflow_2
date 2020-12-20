@@ -28,7 +28,7 @@ transformers==2.8.0
 # you must install CUDA, cuDNN and more: see tensorflow.org for the detailed
 # installation instructions.
 
-tensorflow==2.1.0
+tensorflow==2.4.0
 
 # Optional: the TF Serving API library is just needed for chapter 19.
 tensorflow-serving-api==2.1.0
@@ -61,7 +61,7 @@ tf-agents==0.3.0
 
 ##### Image manipulation
 imageio==2.6.1
-Pillow==7.0.0
+Pillow==7.1.0
 scikit-image==0.16.2
 graphviz==0.13.2
 pydot==1.4.1
