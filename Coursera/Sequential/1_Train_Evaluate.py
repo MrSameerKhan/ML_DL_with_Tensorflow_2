@@ -48,5 +48,3 @@ print(testLoss, testAcc, testMSE)
 
 loss_plot = df.plot(y="loss", title= "Loss vs Epochs", legend = True)
 loss_plot.set(xlabel="Epochs", ylabel="Loss")
-
-
